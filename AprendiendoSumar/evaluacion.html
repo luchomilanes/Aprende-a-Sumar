@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende a Sumar con Manzanas</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Matemasie&family=Nerko+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+    <div class="container">
+    <h1>Aprende a sumar con peras</h1>
+
+    <!-- Inputs para los números A y B -->
+    <div>
+        <label class="label-1">Numero 1: <input class="input-1" type="number" v-model="numeroA" min="0"></label>
+        <label class="label-1 label_1">Número 2: <input class="input-1" type="number" v-model="numeroB" min="0"></label>
+    </div>
+
+    <!-- Mostrar manzanas -->
+    <div>
+        <h3>Peras Núm 1:</h3>
+        <div class="box">
+            <img v-for="n in numeroA" :key="'a' + n" src="https://img.icons8.com/color/48/pear.png" class="pera">
+        </div>
+        <h3>Peras Núm 2:</h3>
+        <div class="box">
+            <img v-for="n in numeroB" :key="'b' + n" src="https://img.icons8.com/color/48/pear.png" class="pera">
+        </div>
+    </div>
+
+    <!-- Verificación de respuesta -->
+    <div>
+        <label class="label-3">Tu Respuesta: <input class="input-2" type="number" v-model="respuestaUsuario"></label>
+        <button class="button-1" @click="verificarRespuesta">Verificar Respuesta</button>
+    </div>
+
+    <!-- Mostrar mensaje de resultado -->
+    <p v-if="mensajeResultado">{{ mensajeResultado }}</p>
+
+    <!-- Botón para reiniciar el juego -->
+    <button class="button-2" @click="reiniciarJuego">Reiniciar Juego</button>
+   </div>
+</div>
+
+<script>
+    const { createApp } = Vue;
+
+    createApp({
+        data() {
+            return {
+                numeroA: 0,
+                numeroB: 0,
+                respuestaUsuario: '',
+                mensajeResultado: ''
+            };
+        },
+        methods: {
+            verificarRespuesta() {
+                const sumaCorrecta = this.numeroA + this.numeroB;
+                if (parseInt(this.respuestaUsuario) === sumaCorrecta) {
+                    this.mensajeResultado = "¡Correcto!";
+                } else {
+                    this.mensajeResultado = "Incorrecto. La respuesta correcta es " + sumaCorrecta;
+                }
+                this.respuestaUsuario = ''; // Limpiar la entrada después de verificar
+            },
+            reiniciarJuego() {
+                this.numeroA = 0;
+                this.numeroB = 0;
+                this.respuestaUsuario = '';
+                this.mensajeResultado = '';
+            }
+        }
+    }).mount('#app');
+</script>
+</body>
+</html>
