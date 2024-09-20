@@ -1,0 +1,132 @@
+/* Fuente personalizada de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fascinate+Inline&family=Protest+Guerrilla&family=Rubik+Mono+One&family=Sofadi+One&family=Unlock&display=swap');
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Inicia más abajo */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Posición normal */
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95); /* Un poco más pequeño */
+  }
+  to {
+    transform: scale(1); /* Tamaño normal */
+  }
+}
+
+/* Estilo para todo el cuerpo de la página */
+body {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  font-family: 'roboto', sans-serif;
+  font-size: 16px; 
+  color: #f5f5f5; 
+}
+
+/* Estilo para el encabezado principal */
+h1 {
+  font-family: "unlock";
+  font-size: 2.5rem;
+  font-weight: 700;  
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffffff;
+  animation: fadeIn 1s ease-out; /* Animación de entrada */
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para las etiquetas de los formularios */
+.form-label {
+  font-size: 1.2rem;
+  color: #f5f5f5;
+  font-family: "Bebas Neue";}
+
+/* Estilo para las celdas de la tabla */
+.table td, .table th {
+  font-size: 1rem;
+  color: #000;
+  animation: fadeIn 0.8s ease-out; /* Animación de aparición */
+}
+
+/* Estilo para los botones */
+.btn-custom {
+  background-color: #ff6f61;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold; 
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+}
+
+.btn-custom:hover {
+  background-color: #ff3e2d;
+  transform: scale(1.05); /* El botón crece ligeramente al pasar el ratón */
+}
+
+/* Efecto visual para filas de la tabla al aparecer */
+.table-responsive tbody tr {
+  opacity: 0; /* Comienzan invisibles */
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* Sombra en la tabla para resaltar */
+.table {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.presente {
+  background-color: rgb(0, 255, 0);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.ausente {
+  background-color: rgb(255, 0, 0);
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Texto alineado */
+.text-center {
+  text-align: center;
+}
+
+/* Márgenes adicionales */
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+/* Responsivo para tablas */
+.table-responsive {
+  max-width: 50%;
+  overflow-x: auto;
+  
+}
+footer {
+  margin-top: 50px;
+  padding: 3px;
+  background-color: #0777e8; 
+  color: #000000; 
+  font-size: 1.1rem; 
+  text-align: center;
+  font-family: "Mono One";
+}
+footer p {
+  margin: 0;
+}
